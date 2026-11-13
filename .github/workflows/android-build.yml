@@ -63,12 +63,7 @@ jobs:
       - name: Build Yasmin AI APK
         working-directory: ${{ env.PROJECT_DIR }}
         run: |
-          chmod +x gradlew || true
-          if [ -f "./gradlew" ]; then
-            ./gradlew assembleDebug
-          else
-            gradle assembleDebug
-          fi
+          gradle assembleDebug --no-daemon
 
       - name: Verify APK
         run: |
